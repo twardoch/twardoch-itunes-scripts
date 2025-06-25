@@ -19,15 +19,19 @@ and write the ratings directly into the MP3 file as the POPM
 (popularimeter) ID3 tag. 
 """
 import sys
-import urllib, urllib2
+import urllib
 import xml.dom.minidom
 from xml.dom.minidom import Node
+
+import urllib2
 
 isMutagen = False
 
 import win32com.client
+
 try: 
-	import mutagen.id3.ID3, mutagen.id3.POPM
+	import mutagen.id3.ID3
+	import mutagen.id3.POPM
 	isMutagen = True
 except: 
 	isMutagen = False

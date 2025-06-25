@@ -29,11 +29,14 @@ AppleScript through the appscript package. It also uses the mutagen
 package for reading and writing ID3 tags. 
 """
 
-import os, os.path, sys
+import os
+import os.path
+import sys
 
 if sys.platform == "darwin": 
 	try: 
-		import appscript, macfile
+		import appscript
+		import macfile
 	except ImportError: 
 		print "On Mac OS X, you need to install appscript from http://appscript.sourceforge.net/"
 		raise SystemExit

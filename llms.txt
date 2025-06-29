@@ -1,0 +1,759 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+AUTHORS
+CONTRIBUTORS
+LICENSE
+README.md
+twardoch_autorate_itunes_tracks_using_audioscrobbler.py
+twardoch_exportimport_itunes_ratings_as_popm.py
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="AUTHORS">
+# This is the official list of twardoch-itunes-scripts authors for copyright purposes.
+# This file is distinct from the CONTRIBUTORS files.
+# See the latter for an explanation.
+
+# Names should be added to this file as:
+# Name or Organization <email address>
+# The email address is not required for organizations.
+
+Adam Twardoch <adam@twardoch.com>
+</file>
+
+<file path="CONTRIBUTORS">
+# This is the official list of people who can contribute
+# (and typically have contributed) code to this repository.
+# The AUTHORS file lists the copyright holders; this file
+# lists people. 
+# Names should be added to this file like so:
+#     Name <email address>
+
+Adam Twardoch <adam@twardoch.com>
+</file>
+
+<file path="LICENSE">
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "{}"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright {yyyy} {name of copyright owner}
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</file>
+
+<file path="README.md">
+twardoch-itunes-scripts
+=======================
+**twardoch-itunes-scripts** is a small collection of iTunes/MP3-related scripts that I wrote in Python some years ago. Specifically: 
+
+* **twardoch_autorate_itunes_tracks_using_audioscrobbler.py** — Python application that automatically assigns ratings to iTunes tracks. For all artists present in the iTunes library, the application connects to Audioscrobbler and acquires the list of the most popular tracks for each artist. Based on these top tracks lists, the application assigns ratings (from one to four stars) to the tracks present in the library. 
+* **twardoch_exportimport_itunes_ratings_as_popm.py** — Python application that converts between track ratings stored in the iTunes library and those embedded inside of an MP3 file (as the 'POPM' popularimeter tag.) It also stores the played count field in the 'POPM' ID3 tag. 
+
+**Note:** I have no idea whether these scripts still work. Feel free to modify them or clean them up, and request a pull merge. 
+
+Software License
+----------------
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+</file>
+
+<file path="twardoch_autorate_itunes_tracks_using_audioscrobbler.py">
+"""twardoch_autorate_itunes_tracks_using_audioscrobbler.py
+Version 1.0
+Copyright (c) 2006 by Adam Twardoch <adam[at]twardoch[dot]com>
+Licensed under the Apache 2 license.
+--
+Python application that automatically assigns ratings to iTunes tracks. 
+For all artists present in the iTunes library, the application 
+connects to Audioscrobbler and acquires the list of the most popular 
+tracks for each artist. Based on these top tracks lists, the application
+assigns ratings (from * to ****) to the tracks present in the library. 
+
+The current implementation uses Windows COM interface to iTunes so it 
+will not work on Mac OS X. It should be possible to rewrite the code
+to use ituneslib.py from 
+http://svn.subway.python-hosting.com/crackajax/trunk/ituneslib.py
+Optionally, it can use the mutagen library from
+https://bitbucket.org/lazka/mutagen/
+and write the ratings directly into the MP3 file as the POPM 
+(popularimeter) ID3 tag. 
+"""
+import sys
+import urllib
+import xml.dom.minidom
+from xml.dom.minidom import Node
+
+import urllib2
+
+isMutagen = False
+
+import win32com.client
+
+try: 
+	import mutagen.id3.ID3
+	import mutagen.id3.POPM
+	isMutagen = True
+except: 
+	isMutagen = False
+
+class AudioScrobblerLookup:
+	"""AudioScrobblerLookup() | (useHttpProxy as string)
+  Class to perform Audioscrobbler queries through http. The optional 
+  useHttpProxy parameter takes a http address for a proxy server, 
+  e.g. http://proxy.myhost:1080/
+METHODS
+getArtistTopTracks(artistname as str)
+  Connects to Audioscrobbler via http, downloads an XML file that 
+  enumerates the top tracks for a given artist name, and returns
+  a list with the titles. The order of elements corresponds to the
+  order in the Audioscrobbler top tracks list. 
+"""
+	def __init__(self, useHttpProxy = None ): 
+		if useHttpProxy:
+			self._setProxyHandler(useHttpProxy)
+
+	def _setProxyHandler(self, proxyurl):
+		self.proxy = urllib2.ProxyHandler( {"http":proxyurl} )
+		opener = urllib2.build_opener(self.proxy, urllib2.HTTPBasicAuthHandler(), urllib2.HTTPHandler, urllib2.HTTPSHandler, urllib2.FTPHandler)
+		urllib2.install_opener(opener)
+		
+	def getArtistTopTracks(self, artistname): 
+		artisttoptracks = []
+		try: 
+			url = "http://ws.audioscrobbler.com/1.0/artist/%s/toptracks.xml" % (urllib.quote(artistname))
+			req = urllib2.Request(url)
+			data = urllib2.urlopen(req).read()
+			doc = xml.dom.minidom.parseString(data)
+			for trackname in doc.getElementsByTagName("name"): 
+				trackname.normalize()
+				if trackname.hasChildNodes(): 
+					try: 
+						tracktitle = trackname.firstChild.data.encode("iso-8859-1")
+					except: 
+						tracktitle = trackname.firstChild.data.encode("utf-8")
+					artisttoptracks.append(tracktitle.lower().lstrip().rstrip())
+		except: 
+			pass
+		return artisttoptracks
+		
+class ArtistTopTracks:
+	"""ArtistTopTracks(artistname as str, scrobbler as AudioScrobblerLookup)
+  Class to assign ratings to the top tracks list acquired from 
+  Audioscrobbler. The first three tracks get the rating ****, 
+  the first 33% get the rating ***, the second 33% get ** and 
+  the rest gets *. 
+"""	
+	def __init__(self, name, scrobbler):
+		self.name = name
+		self.toptracks = {}
+		if scrobbler: 
+			self.scrobbler = scrobbler
+		else: 
+			self.scrobbler = AudioScrobblerLookup()
+		self.scrobblerdone = False
+		
+	def _getAudioScrobblerTopTracks(self): 
+		toptracks = self.scrobbler.getArtistTopTracks(self.name)
+		counttracks = len(toptracks)
+		for tracki in range(counttracks): 
+			track = toptracks[tracki]
+			popm = 0
+			if tracki <= 3: 
+				popm = 100 # iTunes *****
+			elif tracki <= 10: 
+				popm = 80 # iTunes ****
+			elif tracki <= 0.50 * counttracks: 
+				popm = 60 # iTunes ***
+			else: 
+				popm = 40 # iTunes **
+			self.toptracks[track] = popm
+		self.scrobblerdone = True
+				
+	def getTopTracks(self):
+		if not self.scrobblerdone: 
+			self._getAudioScrobblerTopTracks()
+		return self.toptracks
+		
+class ArtistsTopTracks: 
+	"""ArtistsTopTracks(scrobbler as AudioScrobblerLookup)
+  High-level class to assign ratings tracks. 
+METHODS
+getArtistTopTracks(artistname as str)
+  High-level class to get top tracks for a given artist name. 
+getArtistTrackRating(artistname, tracktitle as str)
+  High-level class to get the rating for a given artist name 
+  and track. 
+"""
+	def __init__(self, scrobbler = None):
+		self.artists = {}
+		if scrobbler: 
+			self.scrobbler = scrobbler
+		else: 
+			self.scrobbler = AudioScrobblerLookup()
+	
+	def getArtistTopTracks(self, artistname): 
+		if not artistname in self.artists: 
+			self.artists[artistname] = ArtistTopTracks(artistname, self.scrobbler).getTopTracks()
+		return self.artists[artistname]
+	
+	def getArtistTrackRating(self, artistname, tracktitle): 
+		tracks = self.getArtistTopTracks(artistname)
+		t = tracktitle.lower().lstrip().rstrip()
+		if t in tracks: 
+			rating = tracks[t]
+		else: 
+			rating = 20
+		return rating
+
+class iTunesAutoRating: 
+	"""iTunesAutoRating(displayprogress as boolean)
+  Class to get automatic track ratings from Audioscrobbler
+  into the iTunes track library. The current implementation
+  uses Windows COM interface to iTunes so it will not work 
+  on Mac OS X. It should be possible to rewrite the code
+  to use ituneslib.py from 
+  http://svn.subway.python-hosting.com/crackajax/trunk/ituneslib.py
+  Optionally, it can use the mutagen library and write the ratings
+  directly into the MP3 file as the POPM (popularimeter) ID3 tag. 
+METHODS
+getRatingsForTrack(track as iTunes.Track)
+  Get new Audioscrobbler rating for a particular iTunes track, 
+  and write the rating into the iTunes library as well as optionally
+  write it into the POPM (popularimeter) ID3 tag of the MP3 file. 
+getRatingsForAllTracks() | (count as int)
+  Get new Audioscrobbler ratings for all iTunes tracks in the library. 
+  Optional count parameter evaluates a specific number of tracks 
+  starting from the top of the library, rather than all; useful for 
+  debugging. 
+getRatingsForUnratedTracks() | (count as int)
+  Get new Audioscrobbler ratings for iTunes tracks in the library
+  that have rating = 0 (zero stars)
+findMissingTopTracks(filename as str)
+  For each artist found in the iTunes library, output the track 
+  names that are not included in iTunes library but are among 
+  the first top three tracks on Audioscrobbler. In other words, 
+  if the user likes the particular artist, he should get these
+  tracks. 
+"""
+	def __init__(self, displayprogress = True):
+		self.iTunesApp = win32com.client.gencache.EnsureDispatch("iTunes.Application")
+		self.library = self.iTunesApp.LibraryPlaylist
+		self.tracks = self.library.Tracks
+		self.track_count = self.tracks.Count
+		self.toptracksdb = ArtistsTopTracks()
+		self.itunestracks = {}
+		self.displayprogress = displayprogress
+
+	def _DisplayProgress(self, i):
+		if self.displayprogress: 
+			if not float(i) % 100: 
+				sys.stdout.write(str(i))
+				sys.stdout.flush()
+			elif not float(i) % 20: 
+				sys.stdout.write(".")
+				sys.stdout.flush()
+
+	def _storeiTunesTrack(self, track): 
+		if not track.Artist in self.itunestracks: 
+			self.itunestracks[track.Artist] = []
+		self.itunestracks[track.Artist].append(track.Name.lower().lstrip().rstrip())
+
+	def _storeiTunesTracks(self, c = None): 
+		if not c:
+			c = self.track_count
+		print "  Collecting iTunes tracks..."
+		for track_index in range(1, c + 1): 
+			self._DisplayProgress(track_index)
+			track = self.tracks.Item(track_index)
+			self._storeiTunesTrack(track)
+	
+	def getRatingsForTrack(self, track):
+		tags = None
+		newRating = self.toptracksdb.getArtistTrackRating(track.Artist, track.Name)
+		track.Rating = newRating
+		if isMutagen: 
+			try: 
+				trackfile = win32com.client.CastTo(track,'IITFileOrCDTrack')
+				mp3 = mutagen.id3.ID3(trackfile.Location)
+				popm = mutagen.id3.POPM(rating = newRating, count = track.PlayedCount, email = "itunesrating@apple.com")
+				mp3.add(popm)
+				mp3.save()
+			except: 
+				pass
+		return newRating
+	
+	def getRatingsForAllTracks(self, c = None):
+		if not c:
+			c = self.track_count
+		print "  Getting ratings for tracks..."
+		for track_index in range(1, c + 1): 
+			self._DisplayProgress(track_index)
+			track = self.tracks.Item(track_index)
+			self.getRatingsForTrack(track)
+
+	def getRatingsForUnratedTracks(self, c = None):
+		if not c:
+			c = self.track_count
+		sys.stdout.write("  Getting ratings for tracks...\n")
+		sys.stdout.flush()
+		for track_index in range(1, c + 1): 
+			self._DisplayProgress(track_index)
+			track = self.tracks.Item(track_index)
+			if track.Rating == 0: 
+				oldRating = track.Rating
+				newRating = self.getRatingsForTrack(track)
+
+	def findMissingTopTracks(self, filename): 
+		if not len(self.itunestracks): 
+			self._storeiTunesTracks()
+		outf = file(filename, "w")
+		artists = self.itunestracks.keys()
+		artists.sort()
+		print "  Analyzing artists..."
+		for artist_index in range(len(artists)): 
+			self._DisplayProgress(artist_index)
+			artist = artists[artist_index]
+			toptracks = self.toptracksdb.getArtistTopTracks(artist)
+			for track in toptracks: 
+				try: 
+					if toptracks[track] >= 80: 
+						artisttracks = self.itunestracks[artist]
+						if not track in artisttracks: 
+							outf.write("%s - %s\n" % (artist, track))
+				except: 
+					pass
+		outf.close()
+
+it = iTunesAutoRating()
+print "Updating ratings for all/unrated tracks"
+#it.getRatingsForAllTracks()
+it.getRatingsForUnratedTracks()
+print "Finished"
+</file>
+
+<file path="twardoch_exportimport_itunes_ratings_as_popm.py">
+"""twardoch_exportimport_itunes_ratings_as_popm.py
+Version 1.01
+Copyright (c) 2006 by Adam Twardoch <adam[at]twardoch[dot]com>
+Licensed under the Apache 2 license.
+--
+Python application that converts between track ratings 
+stored in the iTunes library and those embedded inside of an MP3 file
+(as the 'POPM' popularimeter tag.) It also stores the played count
+field in the 'POPM' ID3 tag. 
+
+Example use:
+
+itr = iTunesRatings()
+# Export all iTunes library ratings into MP3 files:
+itr.ExportRatingsForAlliTunesTracks()
+# Import ratings from MP3 files into the iTunes library:
+itr.ImportRatingsForAlliTunesTracks() 
+
+Notes: 
+
+1. While the POPM tag supports ratings from 0 to 255, the iTunes 
+library supports ratings from 0 to 100. This script always uses the iTunes 
+rating scale so the values 0-100 are stored in the POPM tag. 
+2. The POPM tag requires an e-mail address that identifies the source of 
+the rating. This script uses the fantasy address 'itunesrating@apple.com'.
+3. The application works on Windows and Mac OS X. On Windows, it uses 
+COM automation through the win32all extensions. On Mac, it uses 
+AppleScript through the appscript package. It also uses the mutagen 
+package for reading and writing ID3 tags. 
+"""
+
+import os
+import os.path
+import sys
+
+if sys.platform == "darwin": 
+	try: 
+		import appscript
+		import macfile
+	except ImportError: 
+		print "On Mac OS X, you need to install appscript from http://appscript.sourceforge.net/"
+		raise SystemExit
+elif sys.platform == "win32":
+	try: 
+		import win32com.client
+	except ImportError: 
+		print "On Windows, you need to install win32all from http://sourceforge.net/projects/pywin32/"
+		raise SystemExit
+else: 
+	print "This script only runs on Mac OS X or Windows"
+	raise SystemExit
+
+try: 
+	import mutagen.id3
+except ImportError: 
+	print "You need to install mutagen from https://bitbucket.org/lazka/mutagen/"
+	raise SystemExit
+
+class iTunesRatings: 
+	def __init__(self, displayprogress = True): 
+		if sys.platform == "win32": 
+			self.iTunesApp = win32com.client.gencache.EnsureDispatch("iTunes.Application")
+			self.iTunesLibrary = self.iTunesApp.LibraryPlaylist
+			self.iTunesTracks = self.iTunesLibrary.Tracks
+		elif sys.platform == "darwin": 
+			self.iTunesApp = appscript.app('iTunes')
+			self.iTunesLibrary = self.iTunesApp.sources['Library'].library_playlists['Library']
+			self.iTunesTracks = self.iTunesLibrary.file_tracks.get()
+		self.POPMemail = "itunesrating@apple.com" # e-mail address used with the POPM tag to store rating
+		self.displayprogress = displayprogress
+
+	def _ResetProgress(self, all): 
+		self.progresspercentage = 0
+		self.progressall = all
+		if self.displayprogress: 
+			sys.stdout.write("Processing %s tracks... " % (all))
+			if sys.platform == "win32":
+				sys.stdout.flush()
+
+	def _DisplayProgress(self, current):
+		if self.displayprogress: 
+			progresspercentage = int(float(current)/self.progressall * 100 + 0.5)
+			if progresspercentage > self.progresspercentage: 
+				self.progresspercentage = progresspercentage
+				if progresspercentage % 10 == 0:
+					sys.stdout.write("#")
+					if sys.platform == "win32":
+						sys.stdout.flush()
+
+	def ReadPOPMFromFile(self, path): 
+		mp3 = None
+		if not os.path.splitext(path)[1].lower() == ".mp3": 
+			return (0, 0)
+		if not os.path.exists(path): 
+			return (0, 0)
+		try: 
+			mp3 = mutagen.id3.ID3(path)
+		except: 
+			return (0, 0)
+		if not mp3: 
+			return (0, 0)
+		if not mp3.has_key("POPM:%s" % (self.POPMemail)): 
+			return (0, 0)
+		return (mp3["POPM:%s" % (self.POPMemail)].rating, mp3["POPM:%s" % (self.POPMemail)].count)
+
+	def WritePOPMToFile(self, path, trackrating, playedcount):
+		if not os.path.splitext(path)[1].lower() == ".mp3": 
+			return False
+		if not os.path.exists(path): 
+			return False
+		try: 
+			mp3 = mutagen.id3.ID3(path)
+			mp3.add(mutagen.id3.POPM(rating = trackrating, count = playedcount, email = self.POPMemail))
+			mp3.save()
+			return True
+		except: 
+			return False
+
+	def ReadPOPMForiTunesTrack(self, track): 
+		try: 
+			if sys.platform == "win32": 
+				trackfile = win32com.client.CastTo(track,'IITFileOrCDTrack')
+				if not trackfile.Location: 
+					return False
+				if track.Rating == 0: 
+					track.Rating = self.ReadPOPMFromFile(trackfile.Location)[0]
+			elif sys.platform == "darwin": 
+				trackfile = track.location.get()
+				if trackfile == appscript.k.MissingValue:
+					return False
+				rating = track.rating.get()
+				if rating == 0: 
+					track.rating.set(self.ReadPOPMFromFile(trackfile.path)[0])
+			return True
+		except: 
+			return False
+
+	def WritePOPMForiTunesTrack(self, track):
+		try: 
+			if sys.platform == "win32": 
+				trackfile = win32com.client.CastTo(track,'IITFileOrCDTrack')
+				if not trackfile.Location: 
+					return False
+				return self.WritePOPMToFile(trackfile.Location, track.Rating, track.PlayedCount)
+			elif sys.platform == "darwin": 
+				trackfile = track.location.get()
+				if trackfile == appscript.k.MissingValue:
+					return False
+				return self.WritePOPMToFile(trackfile.path, track.rating.get(), track.played_count.get())
+		except: 
+			return False
+
+	def ImportRatingsForAlliTunesTracks(self): 
+		print "Importing ratings from MP3 files into the iTunes library..."
+		if sys.platform == "win32": 
+			track_count = self.iTunesTracks.Count
+		elif sys.platform == "darwin": 
+			track_count = len(self.iTunesTracks)
+		self._ResetProgress(track_count)
+		for track_index in range(track_count): 
+			self._DisplayProgress(track_index)
+			if sys.platform == "win32": 
+				track = self.iTunesTracks.Item(track_index + 1)
+			elif sys.platform == "darwin": 
+				track = self.iTunesTracks[track_index]
+			self.ReadPOPMForiTunesTrack(track)
+
+	def ExportRatingsForAlliTunesTracks(self): 
+		print "Exporting iTunes library ratings into MP3 files..."
+		if sys.platform == "win32": 
+			track_count = self.iTunesTracks.Count
+		elif sys.platform == "darwin": 
+			track_count = len(self.iTunesTracks)
+		self._ResetProgress(track_count)
+		for track_index in range(track_count): 
+			self._DisplayProgress(track_index)
+			if sys.platform == "win32": 
+				track = self.iTunesTracks.Item(track_index + 1)
+			elif sys.platform == "darwin": 
+				track = self.iTunesTracks[track_index]
+			self.WritePOPMForiTunesTrack(track)
+
+itr = iTunesRatings()
+#itr.ExportRatingsForAlliTunesTracks()
+itr.ImportRatingsForAlliTunesTracks()
+print " Finished!"
+</file>
+
+</files>

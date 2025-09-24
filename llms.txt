@@ -1,57 +1,20 @@
-This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+Project Structure:
+📁 twardoch-itunes-scripts
+├── 📄 AUTHORS
+├── 📄 CHANGELOG.md
+├── 📄 CONTRIBUTORS
+├── 📄 LICENSE
+├── 📄 PLAN.md
+├── 📄 README.md
+├── 📄 TODO.md
+├── 📄 twardoch_autorate_itunes_tracks_using_audioscrobbler.py
+└── 📄 twardoch_exportimport_itunes_ratings_as_popm.py
 
-<file_summary>
-This section contains a summary of this file.
 
-<purpose>
-This file contains a packed representation of the entire repository's contents.
-It is designed to be easily consumable by AI systems for analysis, code review,
-or other automated processes.
-</purpose>
-
-<file_format>
-The content is organized as follows:
-1. This summary section
-2. Repository information
-3. Directory structure
-4. Repository files (if enabled)
-5. Multiple file entries, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
-
-<usage_guidelines>
-- This file should be treated as read-only. Any changes should be made to the
-  original repository files, not this packed version.
-- When processing this file, use the file path to distinguish
-  between different files in the repository.
-- Be aware that this file may contain sensitive information. Handle it with
-  the same level of security as you would the original repository.
-</usage_guidelines>
-
-<notes>
-- Some files may have been excluded based on .gitignore rules and Repomix's configuration
-- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
-- Files matching patterns in .gitignore are excluded
-- Files matching default ignore patterns are excluded
-- Files are sorted by Git change count (files with more changes are at the bottom)
-</notes>
-
-</file_summary>
-
-<directory_structure>
-AUTHORS
-CONTRIBUTORS
-LICENSE
-README.md
-twardoch_autorate_itunes_tracks_using_audioscrobbler.py
-twardoch_exportimport_itunes_ratings_as_popm.py
-</directory_structure>
-
-<files>
-This section contains the contents of the repository's files.
-
-<file path="AUTHORS">
+<documents>
+<document index="1">
+<source>AUTHORS</source>
+<document_content>
 # This is the official list of twardoch-itunes-scripts authors for copyright purposes.
 # This file is distinct from the CONTRIBUTORS files.
 # See the latter for an explanation.
@@ -61,9 +24,47 @@ This section contains the contents of the repository's files.
 # The email address is not required for organizations.
 
 Adam Twardoch <adam@twardoch.com>
-</file>
 
-<file path="CONTRIBUTORS">
+</document_content>
+</document>
+
+<document index="2">
+<source>CHANGELOG.md</source>
+<document_content>
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [Unreleased] - 2025-01-29
+
+### Recent Changes
+- Auto-commit: Save local changes (5ccf87b)
+- Fix implementation (e9a659a) 
+- Initial commit of iTunes scripts (52272fa)
+- Initial repository setup (04cbd04)
+
+### Current State
+- Repository contains two Python scripts for iTunes library management:
+  - `twardoch_autorate_itunes_tracks_using_audioscrobbler.py` - Automatically rates iTunes tracks based on Audioscrobbler (Last.fm) popularity data
+  - `twardoch_exportimport_itunes_ratings_as_popm.py` - Exports/imports iTunes ratings to/from MP3 files using POPM ID3 tags
+- Scripts were written in 2006 and use outdated Python patterns and libraries
+- Windows support via COM automation, partial Mac OS X support via appscript
+- No dependency management, testing, or modern packaging
+- Apache License 2.0
+
+### Known Issues
+- Scripts may not work with modern iTunes/Music app versions
+- Audioscrobbler API endpoints are likely deprecated
+- Dependencies on unmaintained libraries (win32com, appscript)
+- No Python 3 compatibility guarantees
+- No error handling or logging
+- Platform-specific code without proper abstraction
+</document_content>
+</document>
+
+<document index="3">
+<source>CONTRIBUTORS</source>
+<document_content>
 # This is the official list of people who can contribute
 # (and typically have contributed) code to this repository.
 # The AUTHORS file lists the copyright holders; this file
@@ -72,9 +73,13 @@ Adam Twardoch <adam@twardoch.com>
 #     Name <email address>
 
 Adam Twardoch <adam@twardoch.com>
-</file>
 
-<file path="LICENSE">
+</document_content>
+</document>
+
+<document index="4">
+<source>LICENSE</source>
+<document_content>
 Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
@@ -276,484 +281,753 @@ Apache License
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-</file>
 
-<file path="README.md">
-twardoch-itunes-scripts
-=======================
-**twardoch-itunes-scripts** is a small collection of iTunes/MP3-related scripts that I wrote in Python some years ago. Specifically: 
 
-* **twardoch_autorate_itunes_tracks_using_audioscrobbler.py** — Python application that automatically assigns ratings to iTunes tracks. For all artists present in the iTunes library, the application connects to Audioscrobbler and acquires the list of the most popular tracks for each artist. Based on these top tracks lists, the application assigns ratings (from one to four stars) to the tracks present in the library. 
-* **twardoch_exportimport_itunes_ratings_as_popm.py** — Python application that converts between track ratings stored in the iTunes library and those embedded inside of an MP3 file (as the 'POPM' popularimeter tag.) It also stores the played count field in the 'POPM' ID3 tag. 
+</document_content>
+</document>
 
-**Note:** I have no idea whether these scripts still work. Feel free to modify them or clean them up, and request a pull merge. 
+<document index="5">
+<source>PLAN.md</source>
+<document_content>
+# Improvement Plan for twardoch-itunes-scripts
 
-Software License
-----------------
-Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
-</file>
+## Executive Summary
 
-<file path="twardoch_autorate_itunes_tracks_using_audioscrobbler.py">
-"""twardoch_autorate_itunes_tracks_using_audioscrobbler.py
-Version 1.0
-Copyright (c) 2006 by Adam Twardoch <adam[at]twardoch[dot]com>
-Licensed under the Apache 2 license.
---
-Python application that automatically assigns ratings to iTunes tracks. 
-For all artists present in the iTunes library, the application 
-connects to Audioscrobbler and acquires the list of the most popular 
-tracks for each artist. Based on these top tracks lists, the application
-assigns ratings (from * to ****) to the tracks present in the library. 
+This repository contains two Python scripts from 2006 that interact with iTunes libraries. The scripts are outdated and need comprehensive modernization to work with current systems and follow modern Python best practices. This plan outlines a complete overhaul to transform these scripts into a maintainable, installable Python package.
 
-The current implementation uses Windows COM interface to iTunes so it 
-will not work on Mac OS X. It should be possible to rewrite the code
-to use ituneslib.py from 
-http://svn.subway.python-hosting.com/crackajax/trunk/ituneslib.py
-Optionally, it can use the mutagen library from
-https://bitbucket.org/lazka/mutagen/
-and write the ratings directly into the MP3 file as the POPM 
-(popularimeter) ID3 tag. 
-"""
+## Current State Analysis
+
+### Technical Debt
+1. **Python Version**: Written for Python 2.x, needs Python 3 compatibility
+2. **Dependencies**: Uses deprecated/unmaintained libraries (win32com, appscript, old mutagen API)
+3. **API Integration**: Audioscrobbler API is deprecated (now Last.fm with different endpoints)
+4. **Platform Support**: Windows-centric with incomplete Mac support, no Linux support
+5. **Code Quality**: No type hints, inconsistent naming, minimal error handling
+6. **Project Structure**: Flat structure with no modularity
+7. **Distribution**: No packaging, dependency management, or installation process
+
+### Functional Issues
+1. iTunes COM interface may not work with modern Music app
+2. Audioscrobbler endpoints no longer exist
+3. ID3 tag handling may conflict with modern music players
+4. No configuration options or CLI interface
+5. Hardcoded values throughout the code
+
+## Modernization Strategy
+
+### Phase 1: Foundation and Structure (Week 1)
+
+#### 1.1 Project Restructuring
+Create a proper Python package structure:
+```
+twardoch-itunes-scripts/
+├── src/
+│   └── itunes_tools/
+│       ├── __init__.py
+│       ├── __main__.py          # CLI entry point
+│       ├── config.py            # Configuration management
+│       ├── models.py            # Data models
+│       ├── platforms/           # Platform-specific implementations
+│       │   ├── __init__.py
+│       │   ├── base.py         # Abstract base class
+│       │   ├── windows.py      # Windows implementation
+│       │   ├── macos.py        # macOS implementation
+│       │   └── linux.py        # Linux stub/alternative
+│       ├── services/
+│       │   ├── __init__.py
+│       │   ├── itunes.py       # iTunes/Music app interface
+│       │   ├── lastfm.py       # Last.fm API client
+│       │   └── id3.py          # ID3 tag handling
+│       ├── commands/            # CLI commands
+│       │   ├── __init__.py
+│       │   ├── autorate.py
+│       │   └── sync_ratings.py
+│       └── utils/
+│           ├── __init__.py
+│           ├── logging.py
+│           └── progress.py
+├── tests/
+│   ├── __init__.py
+│   ├── unit/
+│   ├── integration/
+│   └── fixtures/
+├── docs/
+│   ├── index.md
+│   ├── installation.md
+│   ├── usage.md
+│   └── api.md
+├── .github/
+│   └── workflows/
+│       ├── test.yml
+│       └── release.yml
+├── pyproject.toml
+├── requirements.txt
+├── requirements-dev.txt
+├── setup.cfg
+├── tox.ini
+├── .gitignore
+├── .pre-commit-config.yaml
+└── Makefile
+```
+
+#### 1.2 Development Environment Setup
+1. Create `pyproject.toml` with modern Python packaging standards
+2. Set up virtual environment management with poetry or pip-tools
+3. Configure pre-commit hooks for code quality
+4. Set up tox for multi-version testing
+5. Configure GitHub Actions for CI/CD
+
+#### 1.3 Code Quality Tools
+- **Linting**: ruff, pylint
+- **Formatting**: black, isort
+- **Type Checking**: mypy with strict mode
+- **Security**: bandit, safety
+- **Documentation**: Sphinx with autodoc
+- **Testing**: pytest with coverage
+
+### Phase 2: Core Refactoring (Week 2-3)
+
+#### 2.1 Platform Abstraction Layer
+Create an abstract base class for iTunes/Music app interaction:
+```python
+from abc import ABC, abstractmethod
+from typing import List, Optional, Dict, Any
+
+class MusicLibraryInterface(ABC):
+    @abstractmethod
+    def connect(self) -> bool:
+        """Establish connection to music library"""
+        
+    @abstractmethod
+    def get_tracks(self) -> List[Track]:
+        """Retrieve all tracks from library"""
+        
+    @abstractmethod
+    def update_rating(self, track_id: str, rating: int) -> bool:
+        """Update track rating"""
+```
+
+Implement platform-specific versions:
+- Windows: Use pywin32 or comtypes for COM automation
+- macOS: Investigate Music.app AppleScript or use py-applescript
+- Linux: Provide alternative using local file scanning
+
+#### 2.2 Modern API Integration
+Replace Audioscrobbler with Last.fm API v2:
+1. Implement OAuth2 authentication flow
+2. Create async API client using httpx
+3. Add rate limiting and retry logic
+4. Cache API responses to reduce calls
+5. Handle API errors gracefully
+
+#### 2.3 ID3 Tag Handling
+Update mutagen integration:
+1. Use latest mutagen API
+2. Support multiple audio formats (MP3, M4A, FLAC)
+3. Preserve existing tags when updating
+4. Add validation for tag values
+5. Implement batch operations for performance
+
+### Phase 3: Feature Enhancement (Week 4)
+
+#### 3.1 Configuration System
+Implement hierarchical configuration:
+1. Command-line arguments (highest priority)
+2. Environment variables
+3. User config file (~/.config/itunes-tools/config.yaml)
+4. System defaults
+
+Configuration options:
+- Last.fm API credentials
+- Rating scale mapping
+- File type filters
+- Logging levels
+- Progress display options
+
+#### 3.2 CLI Interface
+Create intuitive CLI using Click or Typer:
+```bash
+# Auto-rate tracks
+itunes-tools autorate --artist "Pink Floyd" --min-popularity 0.7
+
+# Sync ratings bidirectionally
+itunes-tools sync-ratings --direction both --format popm
+
+# Export library metadata
+itunes-tools export --format json --output library.json
+
+# Show statistics
+itunes-tools stats --group-by artist
+```
+
+#### 3.3 Advanced Features
+1. **Playlist Management**: Create playlists based on ratings
+2. **Bulk Operations**: Process specific artists/albums/playlists
+3. **Dry Run Mode**: Preview changes before applying
+4. **Backup/Restore**: Save and restore rating snapshots
+5. **Web Interface**: Optional Flask/FastAPI web UI
+
+### Phase 4: Testing and Documentation (Week 5)
+
+#### 4.1 Testing Strategy
+1. **Unit Tests**: 
+   - Test each module in isolation
+   - Mock external dependencies
+   - Aim for >80% coverage
+
+2. **Integration Tests**:
+   - Test platform-specific implementations
+   - Test Last.fm API integration
+   - Test ID3 tag operations
+
+3. **End-to-End Tests**:
+   - Test complete workflows
+   - Use test fixtures with sample music files
+   - Test error scenarios
+
+#### 4.2 Documentation
+1. **User Documentation**:
+   - Installation guide for each platform
+   - Quick start tutorial
+   - Command reference
+   - Troubleshooting guide
+
+2. **Developer Documentation**:
+   - Architecture overview
+   - API reference
+   - Contributing guidelines
+   - Plugin development guide
+
+3. **Examples**:
+   - Common use cases
+   - Automation scripts
+   - Integration examples
+
+### Phase 5: Distribution and Deployment (Week 6)
+
+#### 5.1 Packaging
+1. Build wheel and sdist packages
+2. Create platform-specific installers:
+   - Windows: MSI installer or portable exe
+   - macOS: Homebrew formula
+   - Linux: Snap/Flatpak/AppImage
+
+#### 5.2 Release Process
+1. Semantic versioning (follow SemVer)
+2. Automated releases via GitHub Actions
+3. Publish to PyPI
+4. Generate release notes from commits
+5. Create GitHub releases with binaries
+
+#### 5.3 Community Building
+1. Create issue templates
+2. Set up discussions forum
+3. Write contribution guidelines
+4. Create code of conduct
+5. Set up project website
+
+## Migration Path for Existing Users
+
+### Compatibility Mode
+Provide a compatibility layer that:
+1. Accepts old command-line arguments
+2. Translates old config formats
+3. Provides migration warnings
+4. Offers automated migration tools
+
+### Data Migration
+1. Detect existing POPM tags
+2. Offer to backup current ratings
+3. Provide rollback mechanism
+4. Generate migration report
+
+## Performance Optimizations
+
+1. **Concurrent Processing**: Use asyncio for API calls
+2. **Batch Operations**: Process files in chunks
+3. **Caching**: Cache API responses and file metadata
+4. **Progress Indicators**: Provide real-time feedback
+5. **Memory Management**: Stream large libraries
+
+## Security Considerations
+
+1. **API Credentials**: Use secure storage (keyring)
+2. **File Permissions**: Respect OS file permissions
+3. **Input Validation**: Sanitize all user inputs
+4. **Dependency Scanning**: Regular security audits
+5. **Privacy**: Don't log sensitive information
+
+## Maintenance Plan
+
+1. **Regular Updates**:
+   - Monthly dependency updates
+   - Quarterly feature releases
+   - Security patches as needed
+
+2. **Monitoring**:
+   - Error tracking with Sentry
+   - Usage analytics (opt-in)
+   - Performance metrics
+
+3. **Community Engagement**:
+   - Respond to issues within 48 hours
+   - Monthly development updates
+   - Quarterly roadmap reviews
+
+## Success Metrics
+
+1. **Code Quality**: 
+   - Test coverage > 80%
+   - No critical security issues
+   - Type coverage > 90%
+
+2. **User Adoption**:
+   - 100+ GitHub stars
+   - 1000+ PyPI downloads/month
+   - Active community contributions
+
+3. **Performance**:
+   - Process 10k tracks < 1 minute
+   - API response caching > 90% hit rate
+   - Memory usage < 100MB for typical library
+
+## Risk Mitigation
+
+1. **Platform Changes**: Abstract platform-specific code
+2. **API Deprecation**: Support multiple API versions
+3. **Library Updates**: Pin dependencies, test updates
+4. **User Data Loss**: Always backup before modifications
+5. **Performance Issues**: Profile and optimize bottlenecks
+
+## Conclusion
+
+This comprehensive modernization plan will transform the outdated iTunes scripts into a professional, maintainable Python package. The phased approach ensures steady progress while maintaining stability. The focus on testing, documentation, and community building will ensure long-term sustainability of the project.
+</document_content>
+</document>
+
+<document index="6">
+<source>README.md</source>
+<document_content>
+# twardoch-itunes-scripts
+
+**twardoch-itunes-scripts** is a collection of Python scripts designed to enhance your iTunes experience by automating track ratings and managing rating data between your iTunes library and your MP3 files. These scripts were originally developed by Adam Twardoch (circa 2006) and are aimed at music enthusiasts and iTunes users looking for more control over their music library.
+
+**Note from the Original Author (paraphrased):** _"I have no idea whether these scripts still work. Feel free to modify them or clean them up, and request a pull merge."_ This highlights the age of the scripts and the potential need for updates for compatibility with modern systems.
+
+## Table of Contents
+
+*   [What do these scripts do and why are they useful?](#what-do-these-scripts-do-and-why-are-they-useful)
+    *   [`twardoch_autorate_itunes_tracks_using_audioscrobbler.py`](#twardoch_autorate_itunes_tracks_using_audioscrobblerpy)
+    *   [`twardoch_exportimport_itunes_ratings_as_popm.py`](#twardoch_exportimport_itunes_ratings_as_popmpy)
+*   [Who are these scripts for?](#who-are-these-scripts-for)
+*   [Installation](#installation)
+    *   [Prerequisites](#prerequisites)
+    *   [Dependencies](#dependencies)
+    *   [Important Considerations](#important-considerations)
+*   [How to Use the Scripts](#how-to-use-the-scripts)
+    *   [`twardoch_autorate_itunes_tracks_using_audioscrobbler.py`](#usage-twardoch_autorate_itunes_tracks_using_audioscrobblerpy)
+    *   [`twardoch_exportimport_itunes_ratings_as_popm.py`](#usage-twardoch_exportimport_itunes_ratings_as_popmpy)
+*   [Technical Details](#technical-details)
+    *   [`twardoch_autorate_itunes_tracks_using_audioscrobbler.py` - Technical](#technical-twardoch_autorate_itunes_tracks_using_audioscrobblerpy)
+    *   [`twardoch_exportimport_itunes_ratings_as_popm.py` - Technical](#technical-twardoch_exportimport_itunes_ratings_as_popmpy)
+*   [Coding and Contribution Guidelines](#coding-and-contribution-guidelines)
+    *   [License](#license)
+    *   [Authors and Contributors](#authors-and-contributors)
+    *   [Contributing](#contributing)
+
+## What do these scripts do and why are they useful?
+
+This collection includes two main Python scripts:
+
+### <a name="twardoch_autorate_itunes_tracks_using_audioscrobblerpy"></a>`twardoch_autorate_itunes_tracks_using_audioscrobbler.py`
+
+*   **What it does:** Automatically assigns star ratings to tracks in your iTunes library.
+*   **How it works:** It identifies artists in your library, queries the Audioscrobbler (now Last.fm) service to find the most popular tracks for each artist, and then applies ratings to your tracks based on this popularity.
+*   **Why it's useful:** If you have a large library with many unrated tracks, this script can save you significant time by providing a baseline rating based on general popularity. This can help you discover or rediscover good music within your own collection.
+
+### <a name="twardoch_exportimport_itunes_ratings_as_popmpy"></a>`twardoch_exportimport_itunes_ratings_as_popm.py`
+
+*   **What it does:** This script allows you to synchronize track ratings and play counts between your iTunes library and the metadata embedded within your MP3 files (specifically, the 'POPM' or popularimeter ID3 tag).
+*   **Why it's useful:**
+    *   **Backup your ratings:** Store your carefully curated iTunes ratings directly in your music files.
+    *   **Portability:** If you use other music players that support POPM tags, your ratings can be visible and usable across different software.
+    *   **Restore ratings:** If your iTunes library gets corrupted or you move to a new system, you can re-import your ratings from the MP3 files back into iTunes.
+
+## Who are these scripts for?
+
+*   iTunes users who want to automate the process of rating their music.
+*   Music collectors who want to ensure their ratings are embedded in their MP3 files for backup and portability.
+*   Users comfortable with running Python scripts and potentially troubleshooting minor compatibility issues due to the age of the scripts.
+
+## Installation
+
+These scripts are written in Python and have some external dependencies.
+
+### Prerequisites
+
+1.  **Python:** You'll need a Python interpreter. The scripts were originally written for Python 2.x. Running them with modern Python 3.x might require modifications.
+2.  **iTunes:** A working installation of iTunes is required.
+
+### Dependencies
+
+1.  **`mutagen`**: Both scripts can use the `mutagen` library to interact with MP3 ID3 tags.
+    ```bash
+    pip install mutagen
+    ```
+2.  **Platform-Specific Dependencies:**
+    *   **For Windows Users:**
+        *   The scripts use Windows COM automation to interact with iTunes. You'll need the `pywin32` extensions.
+            ```bash
+            pip install pywin32
+            ```
+    *   **For macOS Users (for `twardoch_exportimport_itunes_ratings_as_popm.py`):**
+        *   This script uses the `appscript` package to communicate with iTunes via AppleScript. The original documentation mentions installing it from `http://appscript.sourceforge.net/`. Availability and installation for modern macOS might require research and may not work out of the box.
+            ```bash
+            # Example, may need adjustment or alternative
+            pip install appscript
+            ```
+
+### Important Considerations
+
+*   **Virtual Environments:** It's highly recommended to use a Python virtual environment (e.g., `venv`) to manage dependencies for these scripts, especially if you're adapting them.
+*   **Version Compatibility:** Given the age of the scripts (circa 2006), you might encounter issues with the latest versions of Python or the libraries. You may need to find older versions of libraries or update the script code.
+*   **Audioscrobbler/Last.fm API:** The `twardoch_autorate_itunes_tracks_using_audioscrobbler.py` script uses a very old Audioscrobbler API endpoint. This will likely require updating to the current Last.fm API, which involves obtaining an API key.
+
+## How to Use the Scripts
+
+The scripts are designed to be run directly from the command line. Their primary behavior is often embedded in the main execution block of each script, which you might need to modify.
+
+### <a name="usage-twardoch_autorate_itunes_tracks_using_audioscrobblerpy"></a>`twardoch_autorate_itunes_tracks_using_audioscrobbler.py`
+
+*   **Functionality:** Assigns ratings to iTunes tracks based on Audioscrobbler/Last.fm data.
+*   **Platform:** Primarily Windows-only due to its reliance on Windows COM to interact with iTunes. The script notes `ituneslib.py` as a potential (unimplemented) path for macOS compatibility.
+*   **Usage (Command Line):**
+    ```bash
+    python twardoch_autorate_itunes_tracks_using_audioscrobbler.py
+    ```
+    By default, the script is configured to update ratings for *unrated* tracks. You can modify the script (lines `it.getRatingsForUnratedTracks()` or `it.getRatingsForAllTracks()`) to rate all tracks.
+*   **Programmatic Usage:**
+    ```python
+    from twardoch_autorate_itunes_tracks_using_audioscrobbler import iTunesAutoRating
+
+    auto_rater = iTunesAutoRating(displayprogress=True)
+    # For unrated tracks (default behavior in script)
+    auto_rater.getRatingsForUnratedTracks()
+    # Or, for ALL tracks (first N if count specified)
+    # auto_rater.getRatingsForAllTracks(count=None)
+    # To find top tracks missing from your library
+    # auto_rater.findMissingTopTracks("missing_top_tracks.txt")
+    ```
+
+### <a name="usage-twardoch_exportimport_itunes_ratings_as_popmpy"></a>`twardoch_exportimport_itunes_ratings_as_popm.py`
+
+*   **Functionality:** Exports iTunes track ratings and play counts to POPM tags in MP3 files, or imports them from MP3 files into the iTunes library.
+*   **Platform:** Supports both Windows (via COM) and macOS (via AppleScript, if `appscript` works).
+*   **Usage (Command Line):**
+    The script needs to be edited to choose between exporting and importing.
+    ```bash
+    python twardoch_exportimport_itunes_ratings_as_popm.py
+    ```
+    By default, the script is configured to *import* ratings from MP3s to iTunes. To switch to export mode, you need to comment the line `itr.ImportRatingsForAlliTunesTracks()` and uncomment `itr.ExportRatingsForAlliTunesTracks()` at the end of the script.
+*   **Programmatic Usage:**
+    ```python
+    from twardoch_exportimport_itunes_ratings_as_popm import iTunesRatings
+
+    ratings_manager = iTunesRatings(displayprogress=True)
+    # To export all iTunes library ratings into MP3 files:
+    # ratings_manager.ExportRatingsForAlliTunesTracks()
+    # To import ratings from MP3 files into the iTunes library (default in script):
+    ratings_manager.ImportRatingsForAlliTunesTracks()
+    ```
+
+## Technical Details
+
+This section provides a more in-depth look at how each script functions.
+
+### <a name="technical-twardoch_autorate_itunes_tracks_using_audioscrobblerpy"></a>`twardoch_autorate_itunes_tracks_using_audioscrobbler.py`
+
+*   **Core Functionality:** Iterates artists in iTunes, queries Audioscrobbler API for top tracks, assigns ratings locally, and optionally writes POPM ID3 tags using `mutagen`.
+*   **Key Classes:**
+    *   `AudioScrobblerLookup`: Handles Audioscrobbler API queries (uses `http://ws.audioscrobbler.com/1.0/artist/.../toptracks.xml` - **likely needs update to modern Last.fm API**). Parses XML track data.
+    *   `ArtistTopTracks`: Retrieves top tracks for an artist and assigns ratings based on rank. The ratings are on a 20-100 scale, corresponding to 1-5 iTunes stars:
+        *   Top 3 tracks: Rating 100 (iTunes *****)
+        *   Tracks 4-10: Rating 80 (iTunes ****)
+        *   Tracks up to 50% of list: Rating 60 (iTunes ***)
+        *   Remaining tracks in list: Rating 40 (iTunes **)
+        *   Tracks not found in Audioscrobbler list receive a base rating of 20 (iTunes *) if processed.
+    *   `ArtistsTopTracks`: Manages `ArtistTopTracks` instances, caching results. Provides `getArtistTrackRating` which defaults to rating 20 (1 star) if a track isn't in the fetched popular list.
+    *   `iTunesAutoRating`: Main class. Uses `win32com.client` for iTunes on Windows. Methods include `getRatingsForTrack`, `getRatingsForAllTracks`, `getRatingsForUnratedTracks`, `findMissingTopTracks`.
+*   **`mutagen` Integration:** If available, writes rating and play count to `POPM:itunesrating@apple.com` tag in MP3s.
+
+### <a name="technical-twardoch_exportimport_itunes_ratings_as_popmpy"></a>`twardoch_exportimport_itunes_ratings_as_popm.py`
+
+*   **Core Functionality:** Synchronizes ratings and play counts between iTunes and MP3 POPM tags.
+*   **Key Class:** `iTunesRatings`
+    *   **iTunes Interaction:**
+        *   Windows: `win32com.client`.
+        *   macOS: `appscript` library (may require updates/alternatives).
+    *   **POPM Tag Handling (`mutagen`):** Reads/writes `POPM:itunesrating@apple.com` tag. `ReadPOPMFromFile` and `WritePOPMToFile` handle file I/O.
+    *   **Synchronization:**
+        *   `ImportRatingsForAlliTunesTracks()`: Updates iTunes tracks with rating 0 from POPM tags.
+        *   `ExportRatingsForAlliTunesTracks()`: Writes iTunes ratings/play counts to POPM tags.
+    *   **Rating Scale:** Uses iTunes 0-100 scale for POPM tag values (POPM itself supports 0-255).
+    *   **File Types:** Processes only `.mp3` files.
+
+## Coding and Contribution Guidelines
+
+### License
+
+This project is licensed under the **Apache License, Version 2.0**. See the `LICENSE` file.
+
+### Authors and Contributors
+
+*   Copyright holders: `AUTHORS` file.
+*   Contributors: `CONTRIBUTORS` file.
+
+### Contributing
+
+Contributions to modernize, fix, or enhance these scripts are welcome! Given their age, they are prime candidates for updates.
+
+**Potential Areas for Contribution:**
+
+1.  **Modernization:**
+    *   **Python 3 Compatibility:** Full Python 3.x support.
+    *   **Dependency Updates:** Compatibility with current `mutagen`, `pywin32`. For macOS, investigate `appscript` viability or alternatives like `pyobjc`'s ScriptingBridge.
+    *   **Last.fm API Update:** Modify `twardoch_autorate_itunes_tracks_using_audioscrobbler.py` to use the current Last.fm API (requires API key registration).
+2.  **Cross-Platform `twardoch_autorate_itunes_tracks_using_audioscrobbler.py`:** Enable macOS support.
+3.  **Error Handling & Robustness:** Improve error handling (network, file access, API issues) and add logging.
+4.  **User Experience:**
+    *   Implement command-line arguments (e.g., `argparse`) to replace script editing for options.
+    *   Improve user feedback during execution.
+5.  **Code Quality:** Refactor for readability (PEP 8), add comments.
+6.  **Testing:** Develop unit/integration tests (mocking iTunes/API interactions).
+7.  **Documentation:** Keep this README updated.
+
+**How to Contribute:**
+
+*   Fork the repository.
+*   Create a feature/bugfix branch.
+*   Make and test your changes thoroughly.
+*   Submit a pull request with a clear description.
+
+By contributing, you agree that your contributions will be licensed under the Apache License, Version 2.0.
+
+</document_content>
+</document>
+
+<document index="7">
+<source>TODO.md</source>
+<document_content>
+# TODO List for iTunes Scripts Modernization
+
+## Phase 1: Foundation Setup
+
+- [ ] Create modern Python package structure with src/ layout
+- [ ] Set up pyproject.toml with Poetry or setuptools
+- [ ] Add requirements.txt and requirements-dev.txt
+- [ ] Configure .gitignore for Python projects
+- [ ] Set up pre-commit hooks (black, ruff, mypy)
+- [ ] Create GitHub Actions workflow for CI/CD
+- [ ] Add Python 3.8+ compatibility
+- [ ] Set up logging framework
+- [ ] Create basic CLI structure with Click/Typer
+
+## Phase 2: Core Refactoring
+
+- [ ] Create abstract base class for music library interface
+- [ ] Implement Windows platform adapter using pywin32
+- [ ] Implement macOS platform adapter (research Music.app API)
+- [ ] Create Last.fm API client to replace Audioscrobbler
+- [ ] Update mutagen usage to latest API
+- [ ] Add proper error handling throughout
+- [ ] Implement configuration management system
+- [ ] Add type hints to all functions
+- [ ] Create data models for Track, Artist, Album
+
+## Phase 3: Feature Implementation
+
+- [ ] Implement autorate command with Last.fm integration
+- [ ] Implement sync-ratings command for import/export
+- [ ] Add dry-run mode for all commands
+- [ ] Create progress indicators for long operations
+- [ ] Add filtering options (by artist, album, playlist)
+- [ ] Implement rating scale configuration
+- [ ] Add backup/restore functionality
+- [ ] Create stats command for library analysis
+- [ ] Add JSON export functionality
+
+## Phase 4: Testing
+
+- [ ] Set up pytest testing framework
+- [ ] Write unit tests for core modules (>80% coverage)
+- [ ] Create integration tests for platform adapters
+- [ ] Add fixtures with sample music files
+- [ ] Test Last.fm API integration with mocks
+- [ ] Test ID3 tag operations
+- [ ] Add performance benchmarks
+- [ ] Set up continuous integration testing
+
+## Phase 5: Documentation
+
+- [ ] Update README.md with modern examples
+- [ ] Create installation guide for each platform
+- [ ] Write user documentation with Sphinx
+- [ ] Add API documentation with autodoc
+- [ ] Create troubleshooting guide
+- [ ] Add contributing guidelines
+- [ ] Write architecture overview
+- [ ] Create migration guide from old scripts
+
+## Phase 6: Distribution
+
+- [ ] Build wheel and source distributions
+- [ ] Set up automated PyPI publishing
+- [ ] Create Homebrew formula for macOS
+- [ ] Build Windows installer
+- [ ] Add Linux package (snap/AppImage)
+- [ ] Tag first beta release
+- [ ] Create GitHub release with binaries
+- [ ] Set up project website/docs hosting
+
+## Future Enhancements
+
+- [ ] Add web UI with Flask/FastAPI
+- [ ] Implement plugin system
+- [ ] Add support for other music services (Spotify, Apple Music)
+- [ ] Create mobile companion app
+- [ ] Add machine learning for recommendation
+- [ ] Implement social features (share playlists)
+- [ ] Add support for more audio formats
+- [ ] Create visualization tools for library stats
+
+## Maintenance Tasks
+
+- [ ] Set up dependabot for dependency updates
+- [ ] Configure security scanning
+- [ ] Create issue templates
+- [ ] Set up project board for tracking
+- [ ] Schedule regular dependency audits
+- [ ] Plan quarterly feature releases
+- [ ] Monitor API deprecations
+- [ ] Maintain changelog
+</document_content>
+</document>
+
+# File: /Users/adam/Developer/vcs/github.twardoch/pub/twardoch-itunes-scripts/twardoch_autorate_itunes_tracks_using_audioscrobbler.py
+# Language: python
+
 import sys
 import urllib
 import xml.dom.minidom
 from xml.dom.minidom import Node
-
 import urllib2
-
-isMutagen = False
-
 import win32com.client
-
-try: 
-	import mutagen.id3.ID3
-	import mutagen.id3.POPM
-	isMutagen = True
-except: 
-	isMutagen = False
+import mutagen.id3.ID3
+import mutagen.id3.POPM
 
 class AudioScrobblerLookup:
-	"""AudioScrobblerLookup() | (useHttpProxy as string)
-  Class to perform Audioscrobbler queries through http. The optional 
-  useHttpProxy parameter takes a http address for a proxy server, 
-  e.g. http://proxy.myhost:1080/
-METHODS
-getArtistTopTracks(artistname as str)
-  Connects to Audioscrobbler via http, downloads an XML file that 
-  enumerates the top tracks for a given artist name, and returns
-  a list with the titles. The order of elements corresponds to the
-  order in the Audioscrobbler top tracks list. 
-"""
-	def __init__(self, useHttpProxy = None ): 
-		if useHttpProxy:
-			self._setProxyHandler(useHttpProxy)
+    """AudioScrobblerLookup() | (useHttpProxy as string)"""
+    def __init__((self, useHttpProxy = None )):
+    def _setProxyHandler((self, proxyurl)):
+    def getArtistTopTracks((self, artistname)):
 
-	def _setProxyHandler(self, proxyurl):
-		self.proxy = urllib2.ProxyHandler( {"http":proxyurl} )
-		opener = urllib2.build_opener(self.proxy, urllib2.HTTPBasicAuthHandler(), urllib2.HTTPHandler, urllib2.HTTPSHandler, urllib2.FTPHandler)
-		urllib2.install_opener(opener)
-		
-	def getArtistTopTracks(self, artistname): 
-		artisttoptracks = []
-		try: 
-			url = "http://ws.audioscrobbler.com/1.0/artist/%s/toptracks.xml" % (urllib.quote(artistname))
-			req = urllib2.Request(url)
-			data = urllib2.urlopen(req).read()
-			doc = xml.dom.minidom.parseString(data)
-			for trackname in doc.getElementsByTagName("name"): 
-				trackname.normalize()
-				if trackname.hasChildNodes(): 
-					try: 
-						tracktitle = trackname.firstChild.data.encode("iso-8859-1")
-					except: 
-						tracktitle = trackname.firstChild.data.encode("utf-8")
-					artisttoptracks.append(tracktitle.lower().lstrip().rstrip())
-		except: 
-			pass
-		return artisttoptracks
-		
 class ArtistTopTracks:
-	"""ArtistTopTracks(artistname as str, scrobbler as AudioScrobblerLookup)
-  Class to assign ratings to the top tracks list acquired from 
-  Audioscrobbler. The first three tracks get the rating ****, 
-  the first 33% get the rating ***, the second 33% get ** and 
-  the rest gets *. 
-"""	
-	def __init__(self, name, scrobbler):
-		self.name = name
-		self.toptracks = {}
-		if scrobbler: 
-			self.scrobbler = scrobbler
-		else: 
-			self.scrobbler = AudioScrobblerLookup()
-		self.scrobblerdone = False
-		
-	def _getAudioScrobblerTopTracks(self): 
-		toptracks = self.scrobbler.getArtistTopTracks(self.name)
-		counttracks = len(toptracks)
-		for tracki in range(counttracks): 
-			track = toptracks[tracki]
-			popm = 0
-			if tracki <= 3: 
-				popm = 100 # iTunes *****
-			elif tracki <= 10: 
-				popm = 80 # iTunes ****
-			elif tracki <= 0.50 * counttracks: 
-				popm = 60 # iTunes ***
-			else: 
-				popm = 40 # iTunes **
-			self.toptracks[track] = popm
-		self.scrobblerdone = True
-				
-	def getTopTracks(self):
-		if not self.scrobblerdone: 
-			self._getAudioScrobblerTopTracks()
-		return self.toptracks
-		
-class ArtistsTopTracks: 
-	"""ArtistsTopTracks(scrobbler as AudioScrobblerLookup)
-  High-level class to assign ratings tracks. 
-METHODS
-getArtistTopTracks(artistname as str)
-  High-level class to get top tracks for a given artist name. 
-getArtistTrackRating(artistname, tracktitle as str)
-  High-level class to get the rating for a given artist name 
-  and track. 
-"""
-	def __init__(self, scrobbler = None):
-		self.artists = {}
-		if scrobbler: 
-			self.scrobbler = scrobbler
-		else: 
-			self.scrobbler = AudioScrobblerLookup()
-	
-	def getArtistTopTracks(self, artistname): 
-		if not artistname in self.artists: 
-			self.artists[artistname] = ArtistTopTracks(artistname, self.scrobbler).getTopTracks()
-		return self.artists[artistname]
-	
-	def getArtistTrackRating(self, artistname, tracktitle): 
-		tracks = self.getArtistTopTracks(artistname)
-		t = tracktitle.lower().lstrip().rstrip()
-		if t in tracks: 
-			rating = tracks[t]
-		else: 
-			rating = 20
-		return rating
+    """ArtistTopTracks(artistname as str, scrobbler as AudioScrobblerLookup)"""
+    def __init__((self, name, scrobbler)):
+    def _getAudioScrobblerTopTracks((self)):
+    def getTopTracks((self)):
 
-class iTunesAutoRating: 
-	"""iTunesAutoRating(displayprogress as boolean)
-  Class to get automatic track ratings from Audioscrobbler
-  into the iTunes track library. The current implementation
-  uses Windows COM interface to iTunes so it will not work 
-  on Mac OS X. It should be possible to rewrite the code
-  to use ituneslib.py from 
-  http://svn.subway.python-hosting.com/crackajax/trunk/ituneslib.py
-  Optionally, it can use the mutagen library and write the ratings
-  directly into the MP3 file as the POPM (popularimeter) ID3 tag. 
-METHODS
-getRatingsForTrack(track as iTunes.Track)
-  Get new Audioscrobbler rating for a particular iTunes track, 
-  and write the rating into the iTunes library as well as optionally
-  write it into the POPM (popularimeter) ID3 tag of the MP3 file. 
-getRatingsForAllTracks() | (count as int)
-  Get new Audioscrobbler ratings for all iTunes tracks in the library. 
-  Optional count parameter evaluates a specific number of tracks 
-  starting from the top of the library, rather than all; useful for 
-  debugging. 
-getRatingsForUnratedTracks() | (count as int)
-  Get new Audioscrobbler ratings for iTunes tracks in the library
-  that have rating = 0 (zero stars)
-findMissingTopTracks(filename as str)
-  For each artist found in the iTunes library, output the track 
-  names that are not included in iTunes library but are among 
-  the first top three tracks on Audioscrobbler. In other words, 
-  if the user likes the particular artist, he should get these
-  tracks. 
-"""
-	def __init__(self, displayprogress = True):
-		self.iTunesApp = win32com.client.gencache.EnsureDispatch("iTunes.Application")
-		self.library = self.iTunesApp.LibraryPlaylist
-		self.tracks = self.library.Tracks
-		self.track_count = self.tracks.Count
-		self.toptracksdb = ArtistsTopTracks()
-		self.itunestracks = {}
-		self.displayprogress = displayprogress
+class ArtistsTopTracks:
+    """ArtistsTopTracks(scrobbler as AudioScrobblerLookup)"""
+    def __init__((self, scrobbler = None)):
+    def getArtistTopTracks((self, artistname)):
+    def getArtistTrackRating((self, artistname, tracktitle)):
 
-	def _DisplayProgress(self, i):
-		if self.displayprogress: 
-			if not float(i) % 100: 
-				sys.stdout.write(str(i))
-				sys.stdout.flush()
-			elif not float(i) % 20: 
-				sys.stdout.write(".")
-				sys.stdout.flush()
+class iTunesAutoRating:
+    """iTunesAutoRating(displayprogress as boolean)"""
+    def __init__((self, displayprogress = True)):
+    def _DisplayProgress((self, i)):
+    def _storeiTunesTrack((self, track)):
+    def _storeiTunesTracks((self, c = None)):
+    def getRatingsForTrack((self, track)):
+    def getRatingsForAllTracks((self, c = None)):
+    def getRatingsForUnratedTracks((self, c = None)):
+    def findMissingTopTracks((self, filename)):
 
-	def _storeiTunesTrack(self, track): 
-		if not track.Artist in self.itunestracks: 
-			self.itunestracks[track.Artist] = []
-		self.itunestracks[track.Artist].append(track.Name.lower().lstrip().rstrip())
+def __init__((self, useHttpProxy = None )):
 
-	def _storeiTunesTracks(self, c = None): 
-		if not c:
-			c = self.track_count
-		print "  Collecting iTunes tracks..."
-		for track_index in range(1, c + 1): 
-			self._DisplayProgress(track_index)
-			track = self.tracks.Item(track_index)
-			self._storeiTunesTrack(track)
-	
-	def getRatingsForTrack(self, track):
-		tags = None
-		newRating = self.toptracksdb.getArtistTrackRating(track.Artist, track.Name)
-		track.Rating = newRating
-		if isMutagen: 
-			try: 
-				trackfile = win32com.client.CastTo(track,'IITFileOrCDTrack')
-				mp3 = mutagen.id3.ID3(trackfile.Location)
-				popm = mutagen.id3.POPM(rating = newRating, count = track.PlayedCount, email = "itunesrating@apple.com")
-				mp3.add(popm)
-				mp3.save()
-			except: 
-				pass
-		return newRating
-	
-	def getRatingsForAllTracks(self, c = None):
-		if not c:
-			c = self.track_count
-		print "  Getting ratings for tracks..."
-		for track_index in range(1, c + 1): 
-			self._DisplayProgress(track_index)
-			track = self.tracks.Item(track_index)
-			self.getRatingsForTrack(track)
+def _setProxyHandler((self, proxyurl)):
 
-	def getRatingsForUnratedTracks(self, c = None):
-		if not c:
-			c = self.track_count
-		sys.stdout.write("  Getting ratings for tracks...\n")
-		sys.stdout.flush()
-		for track_index in range(1, c + 1): 
-			self._DisplayProgress(track_index)
-			track = self.tracks.Item(track_index)
-			if track.Rating == 0: 
-				oldRating = track.Rating
-				newRating = self.getRatingsForTrack(track)
+def getArtistTopTracks((self, artistname)):
 
-	def findMissingTopTracks(self, filename): 
-		if not len(self.itunestracks): 
-			self._storeiTunesTracks()
-		outf = file(filename, "w")
-		artists = self.itunestracks.keys()
-		artists.sort()
-		print "  Analyzing artists..."
-		for artist_index in range(len(artists)): 
-			self._DisplayProgress(artist_index)
-			artist = artists[artist_index]
-			toptracks = self.toptracksdb.getArtistTopTracks(artist)
-			for track in toptracks: 
-				try: 
-					if toptracks[track] >= 80: 
-						artisttracks = self.itunestracks[artist]
-						if not track in artisttracks: 
-							outf.write("%s - %s\n" % (artist, track))
-				except: 
-					pass
-		outf.close()
+def __init__((self, name, scrobbler)):
 
-it = iTunesAutoRating()
-print "Updating ratings for all/unrated tracks"
-#it.getRatingsForAllTracks()
-it.getRatingsForUnratedTracks()
-print "Finished"
-</file>
+def _getAudioScrobblerTopTracks((self)):
 
-<file path="twardoch_exportimport_itunes_ratings_as_popm.py">
-"""twardoch_exportimport_itunes_ratings_as_popm.py
-Version 1.01
-Copyright (c) 2006 by Adam Twardoch <adam[at]twardoch[dot]com>
-Licensed under the Apache 2 license.
---
-Python application that converts between track ratings 
-stored in the iTunes library and those embedded inside of an MP3 file
-(as the 'POPM' popularimeter tag.) It also stores the played count
-field in the 'POPM' ID3 tag. 
+def getTopTracks((self)):
 
-Example use:
+def __init__((self, scrobbler = None)):
 
-itr = iTunesRatings()
-# Export all iTunes library ratings into MP3 files:
-itr.ExportRatingsForAlliTunesTracks()
-# Import ratings from MP3 files into the iTunes library:
-itr.ImportRatingsForAlliTunesTracks() 
+def getArtistTopTracks((self, artistname)):
 
-Notes: 
+def getArtistTrackRating((self, artistname, tracktitle)):
 
-1. While the POPM tag supports ratings from 0 to 255, the iTunes 
-library supports ratings from 0 to 100. This script always uses the iTunes 
-rating scale so the values 0-100 are stored in the POPM tag. 
-2. The POPM tag requires an e-mail address that identifies the source of 
-the rating. This script uses the fantasy address 'itunesrating@apple.com'.
-3. The application works on Windows and Mac OS X. On Windows, it uses 
-COM automation through the win32all extensions. On Mac, it uses 
-AppleScript through the appscript package. It also uses the mutagen 
-package for reading and writing ID3 tags. 
-"""
+def __init__((self, displayprogress = True)):
+
+def _DisplayProgress((self, i)):
+
+def _storeiTunesTrack((self, track)):
+
+def _storeiTunesTracks((self, c = None)):
+
+def getRatingsForTrack((self, track)):
+
+def getRatingsForAllTracks((self, c = None)):
+
+def getRatingsForUnratedTracks((self, c = None)):
+
+def findMissingTopTracks((self, filename)):
+
+
+# File: /Users/adam/Developer/vcs/github.twardoch/pub/twardoch-itunes-scripts/twardoch_exportimport_itunes_ratings_as_popm.py
+# Language: python
 
 import os
 import os.path
 import sys
+import appscript
+import macfile
+import win32com.client
+import mutagen.id3
 
-if sys.platform == "darwin": 
-	try: 
-		import appscript
-		import macfile
-	except ImportError: 
-		print "On Mac OS X, you need to install appscript from http://appscript.sourceforge.net/"
-		raise SystemExit
-elif sys.platform == "win32":
-	try: 
-		import win32com.client
-	except ImportError: 
-		print "On Windows, you need to install win32all from http://sourceforge.net/projects/pywin32/"
-		raise SystemExit
-else: 
-	print "This script only runs on Mac OS X or Windows"
-	raise SystemExit
+class iTunesRatings:
+    def __init__((self, displayprogress = True)):
+    def _ResetProgress((self, all)):
+    def _DisplayProgress((self, current)):
+    def ReadPOPMFromFile((self, path)):
+    def WritePOPMToFile((self, path, trackrating, playedcount)):
+    def ReadPOPMForiTunesTrack((self, track)):
+    def WritePOPMForiTunesTrack((self, track)):
+    def ImportRatingsForAlliTunesTracks((self)):
+    def ExportRatingsForAlliTunesTracks((self)):
 
-try: 
-	import mutagen.id3
-except ImportError: 
-	print "You need to install mutagen from https://bitbucket.org/lazka/mutagen/"
-	raise SystemExit
+def __init__((self, displayprogress = True)):
 
-class iTunesRatings: 
-	def __init__(self, displayprogress = True): 
-		if sys.platform == "win32": 
-			self.iTunesApp = win32com.client.gencache.EnsureDispatch("iTunes.Application")
-			self.iTunesLibrary = self.iTunesApp.LibraryPlaylist
-			self.iTunesTracks = self.iTunesLibrary.Tracks
-		elif sys.platform == "darwin": 
-			self.iTunesApp = appscript.app('iTunes')
-			self.iTunesLibrary = self.iTunesApp.sources['Library'].library_playlists['Library']
-			self.iTunesTracks = self.iTunesLibrary.file_tracks.get()
-		self.POPMemail = "itunesrating@apple.com" # e-mail address used with the POPM tag to store rating
-		self.displayprogress = displayprogress
+def _ResetProgress((self, all)):
 
-	def _ResetProgress(self, all): 
-		self.progresspercentage = 0
-		self.progressall = all
-		if self.displayprogress: 
-			sys.stdout.write("Processing %s tracks... " % (all))
-			if sys.platform == "win32":
-				sys.stdout.flush()
+def _DisplayProgress((self, current)):
 
-	def _DisplayProgress(self, current):
-		if self.displayprogress: 
-			progresspercentage = int(float(current)/self.progressall * 100 + 0.5)
-			if progresspercentage > self.progresspercentage: 
-				self.progresspercentage = progresspercentage
-				if progresspercentage % 10 == 0:
-					sys.stdout.write("#")
-					if sys.platform == "win32":
-						sys.stdout.flush()
+def ReadPOPMFromFile((self, path)):
 
-	def ReadPOPMFromFile(self, path): 
-		mp3 = None
-		if not os.path.splitext(path)[1].lower() == ".mp3": 
-			return (0, 0)
-		if not os.path.exists(path): 
-			return (0, 0)
-		try: 
-			mp3 = mutagen.id3.ID3(path)
-		except: 
-			return (0, 0)
-		if not mp3: 
-			return (0, 0)
-		if not mp3.has_key("POPM:%s" % (self.POPMemail)): 
-			return (0, 0)
-		return (mp3["POPM:%s" % (self.POPMemail)].rating, mp3["POPM:%s" % (self.POPMemail)].count)
+def WritePOPMToFile((self, path, trackrating, playedcount)):
 
-	def WritePOPMToFile(self, path, trackrating, playedcount):
-		if not os.path.splitext(path)[1].lower() == ".mp3": 
-			return False
-		if not os.path.exists(path): 
-			return False
-		try: 
-			mp3 = mutagen.id3.ID3(path)
-			mp3.add(mutagen.id3.POPM(rating = trackrating, count = playedcount, email = self.POPMemail))
-			mp3.save()
-			return True
-		except: 
-			return False
+def ReadPOPMForiTunesTrack((self, track)):
 
-	def ReadPOPMForiTunesTrack(self, track): 
-		try: 
-			if sys.platform == "win32": 
-				trackfile = win32com.client.CastTo(track,'IITFileOrCDTrack')
-				if not trackfile.Location: 
-					return False
-				if track.Rating == 0: 
-					track.Rating = self.ReadPOPMFromFile(trackfile.Location)[0]
-			elif sys.platform == "darwin": 
-				trackfile = track.location.get()
-				if trackfile == appscript.k.MissingValue:
-					return False
-				rating = track.rating.get()
-				if rating == 0: 
-					track.rating.set(self.ReadPOPMFromFile(trackfile.path)[0])
-			return True
-		except: 
-			return False
+def WritePOPMForiTunesTrack((self, track)):
 
-	def WritePOPMForiTunesTrack(self, track):
-		try: 
-			if sys.platform == "win32": 
-				trackfile = win32com.client.CastTo(track,'IITFileOrCDTrack')
-				if not trackfile.Location: 
-					return False
-				return self.WritePOPMToFile(trackfile.Location, track.Rating, track.PlayedCount)
-			elif sys.platform == "darwin": 
-				trackfile = track.location.get()
-				if trackfile == appscript.k.MissingValue:
-					return False
-				return self.WritePOPMToFile(trackfile.path, track.rating.get(), track.played_count.get())
-		except: 
-			return False
+def ImportRatingsForAlliTunesTracks((self)):
 
-	def ImportRatingsForAlliTunesTracks(self): 
-		print "Importing ratings from MP3 files into the iTunes library..."
-		if sys.platform == "win32": 
-			track_count = self.iTunesTracks.Count
-		elif sys.platform == "darwin": 
-			track_count = len(self.iTunesTracks)
-		self._ResetProgress(track_count)
-		for track_index in range(track_count): 
-			self._DisplayProgress(track_index)
-			if sys.platform == "win32": 
-				track = self.iTunesTracks.Item(track_index + 1)
-			elif sys.platform == "darwin": 
-				track = self.iTunesTracks[track_index]
-			self.ReadPOPMForiTunesTrack(track)
+def ExportRatingsForAlliTunesTracks((self)):
 
-	def ExportRatingsForAlliTunesTracks(self): 
-		print "Exporting iTunes library ratings into MP3 files..."
-		if sys.platform == "win32": 
-			track_count = self.iTunesTracks.Count
-		elif sys.platform == "darwin": 
-			track_count = len(self.iTunesTracks)
-		self._ResetProgress(track_count)
-		for track_index in range(track_count): 
-			self._DisplayProgress(track_index)
-			if sys.platform == "win32": 
-				track = self.iTunesTracks.Item(track_index + 1)
-			elif sys.platform == "darwin": 
-				track = self.iTunesTracks[track_index]
-			self.WritePOPMForiTunesTrack(track)
 
-itr = iTunesRatings()
-#itr.ExportRatingsForAlliTunesTracks()
-itr.ImportRatingsForAlliTunesTracks()
-print " Finished!"
-</file>
-
-</files>
+</documents>
